@@ -1,4 +1,5 @@
 ﻿using System;
+using DeckOfCards.Classes;
 
 namespace DeckOfCards
 {
@@ -6,7 +7,11 @@ namespace DeckOfCards
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Dealer dealer = new Dealer();
+            dealer.Start();
+            Console.WriteLine(dealer.GetNumberOfCardsInDeck().ToString());
+            Console.WriteLine(string.Join<Card>(Environment.NewLine, dealer.ShowDeckInGame()));
+            Console.ReadLine();
         }
     }
 }

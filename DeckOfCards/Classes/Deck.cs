@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DeckOfCards.Classes;
 
 namespace DeckOfCards.Classes
@@ -19,8 +20,8 @@ namespace DeckOfCards.Classes
                     _temp[i] = _cards[i];
                 }
                 _cards = _temp;
-                _cards[_cnt++] = card;
             }
+            _cards[_cnt++] = card;
         }
         public void Remove(T card)
         {
@@ -31,6 +32,7 @@ namespace DeckOfCards.Classes
                 Array.Copy(_cards, indexOfCard + 1, _cards, indexOfCard, _cnt - indexOfCard);
             }
         }
+        public int GetLength() { return _cnt; }
         public Card[] ReturnSuit(Suit suit)
         {
             Deck<T> result = new Deck<T>();
@@ -46,7 +48,15 @@ namespace DeckOfCards.Classes
         }
         public Card[] ToArray()
         {
+            Array.Resize<T>(ref _cards, _cnt);
             return Array.ConvertAll<T, Card>(_cards, elm => (Card)(object)elm);
+        }
+        public Card GetCard()
+        {
+            Random rnd = new Random();
+            T result = _cards[rnd.Next(_cnt + 1)];
+            this.Remove(result);
+            return (Card)(object)result;
         }
         public IEnumerator<T> GetEnumerator()
         {

@@ -9,7 +9,7 @@ namespace DeckOfCards.Classes
         Spade,
         Heart,
         Diamond,
-        Club,
+        Club
     }
     public enum Rank
     {
@@ -22,10 +22,10 @@ namespace DeckOfCards.Classes
         Eight,
         Nine,
         Ten,
-        J,
-        Q,
-        K,
-        A
+        Jack,
+        Queen,
+        King,
+        Ace
     }
     public class Card
     {
@@ -34,7 +34,11 @@ namespace DeckOfCards.Classes
 
         public override string ToString()
         {
-            return $"{Suit} {Rank}";
+            if (Rank == Rank.Jack ||
+                Rank == Rank.Queen ||
+                Rank == Rank.King ||
+                Rank == Rank.Ace) return $"{Rank} {Suit}";
+            return $"{(int)Rank} {Suit}";
         }
     }
 }
