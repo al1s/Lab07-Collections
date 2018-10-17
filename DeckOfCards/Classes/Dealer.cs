@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DeckOfCards.Classes
 {
-    class Dealer
+    public class Dealer
     {
     }
 }

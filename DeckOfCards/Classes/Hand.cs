@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DeckOfCards.Classes
 {
-    class Player
+    public class Hand
     {
     }
 }
