@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DeckOfCards.Classes
+﻿namespace DeckOfCards.Classes
 {
     public enum Suit
     {
@@ -13,11 +9,7 @@ namespace DeckOfCards.Classes
     }
     public enum Rank
     {
-        Two = 2,
-        Three,
-        Four,
-        Five,
-        Six,
+        Six = 6,
         Seven,
         Eight,
         Nine,
@@ -31,13 +23,16 @@ namespace DeckOfCards.Classes
     {
         public Suit Suit { get; set; }
         public Rank Rank { get; set; }
-
         public override string ToString()
         {
             if (Rank == Rank.Jack ||
                 Rank == Rank.Queen ||
                 Rank == Rank.King ||
-                Rank == Rank.Ace) return $"{Rank} {Suit}";
+                Rank == Rank.Ace)
+            {
+                return $"{Rank} {Suit}";
+            }
+
             return $"{(int)Rank} {Suit}";
         }
     }

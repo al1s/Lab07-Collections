@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using DeckOfCards.Classes;
 
 namespace DeckOfCards.Classes
 {
@@ -12,7 +10,7 @@ namespace DeckOfCards.Classes
         private int _cnt = 0;
         public void Add(T card)
         {
-            if(_cards.Length == _cnt)
+            if (_cards.Length == _cnt)
             {
                 T[] _temp = new T[_cnt * 2];
                 for (int i = 0; i < _cnt; i++)
@@ -36,13 +34,18 @@ namespace DeckOfCards.Classes
         public Card[] ReturnSuit(Suit suit)
         {
             Deck<T> result = new Deck<T>();
-            for (int i=0; i < _cnt; i++)
+            Deck<T> rangeToDelete = new Deck<T>();
+            for (int i = 0; i < _cnt; i++)
             {
-                if(((Card)(object)_cards[i]).Suit == suit)
+                if (((Card)(object)_cards[i]).Suit == suit)
                 {
                     result.Add(_cards[i]);
-                    this.Remove(_cards[i]);
+                    rangeToDelete.Add(_cards[i]);
                 }
+            }
+            foreach (T item in rangeToDelete)
+            {
+                this.Remove(item);
             }
             return result.ToArray();
         }
