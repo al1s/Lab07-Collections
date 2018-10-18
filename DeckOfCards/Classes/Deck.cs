@@ -60,7 +60,7 @@ namespace DeckOfCards.Classes
             Deck<T> rangeToDelete = new Deck<T>();
             for (int i = 0; i < _cnt; i++)
             {
-                if (((Card)(object)_cards[i]).Suit == suit)
+                if (((Card)(object)_cards[i]).GetSuit() == suit)
                 {
                     result.Add(_cards[i]);
                     rangeToDelete.Add(_cards[i]);

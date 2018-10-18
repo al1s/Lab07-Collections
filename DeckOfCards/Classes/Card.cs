@@ -30,26 +30,33 @@
         /// <summary>
         /// Card suit
         /// </summary>
-        public Suit Suit { get; set; }
+        private Suit _Suit { get; set; }
         /// <summary>
         /// Card rank
         /// </summary>
-        public Rank Rank { get; set; }
+        private Rank _Rank { get; set; }
         /// <summary>
         /// Prepare card to be returned as a string 
         /// </summary>
         /// <returns>String with card's rank and suit</returns>
         public override string ToString()
         {
-            if (Rank == Rank.Jack ||
-                Rank == Rank.Queen ||
-                Rank == Rank.King ||
-                Rank == Rank.Ace)
+            if (_Rank == Rank.Jack ||
+                _Rank == Rank.Queen ||
+                _Rank == Rank.King ||
+                _Rank == Rank.Ace)
             {
-                return $"{Rank} {Suit}";
+                return $"{_Rank} {_Suit}";
             }
 
-            return $"{(int)Rank} {Suit}";
+            return $"{(int)_Rank} {_Suit}";
+        }
+        public Suit GetSuit() { return _Suit; }
+        public Rank GetRank() { return _Rank; }
+        public Card(Suit suit, Rank rank)
+        {
+            _Suit = suit;
+            _Rank = rank;
         }
     }
 }

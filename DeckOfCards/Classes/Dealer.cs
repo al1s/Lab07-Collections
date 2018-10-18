@@ -31,7 +31,7 @@ namespace DeckOfCards.Classes
             }
             var cardsToGenerate =
                  SuitsAvailable.SelectMany(suit => RanksAvailable,
-                    (suit, rank) => new Card { Suit = suit, Rank = rank });
+                    (suit, rank) => new Card(suit, rank));
             foreach (var card in cardsToGenerate)
             {
                 _deck.Add(card);
