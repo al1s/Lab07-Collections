@@ -16,7 +16,7 @@ namespace DeckOfCards
             Console.WriteLine(string.Join<Card>(", ", dealer.ShowDeckInGame()));
             Console.WriteLine();
             Console.WriteLine("Let's get rid of Clubs. Here they are:".ToUpper());
-            Console.WriteLine(string.Join<Card>(", ", dealer.GetAllSuitFromDeck(Suit.Club)));
+            Console.WriteLine(string.Join<Card>(", ", dealer.GetAllCardWithSuit(Suit.Club)));
             Console.WriteLine();
             Console.WriteLine("Available cards:".ToUpper());
             Console.WriteLine(string.Join<Card>(", ", dealer.ShowDeckInGame()));
